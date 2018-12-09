@@ -130,7 +130,6 @@ clientDiscord.on("message", message => {
              ship.splice(0,10);
              ship1.splice(0,10);
              ship2.splice(0.10);
-
          }
         }
         ban.push(message.author.id);
@@ -215,6 +214,11 @@ clientDiscord.on("message", message => {
                         return
                     }
                  }
+                 if(shipp.length>=10) {
+                    shipp.splice(0,10);
+                    shipp1.splice(0,10);
+                    shipp2.splice(0.10);
+                }
                 }
             ban2.push(message.author.id);
             date1 = Date.now();
@@ -245,12 +249,13 @@ clientDiscord.on("message", message => {
     }
             shipp1.push(message.author.id);
             shipp2.push(utilisateurB);
-            message.channel.send("<@"+ utilisateurA + ">, je trouve <@" + utilisateurB + "> vraiment parfaite pour toi :point_right: :point_left: ")
-            .then(msg => {
-                msg.react('❤');
-                msg.react('💔');
-                shipp.push(msg.id);
-            }).catch();
+            message.delete();
+            message.channel.send("Tiens donc, je verrais bien <@"+ utilisateurA + "> et <@" + utilisateurB + "> ensemble moi, pas vous? :eyes:")
+            .then(msge => {
+            msge.react('❤');
+            msge.react('💔');
+            shipp.push(msge.id);
+        });
         }
     });
 clientDiscord.on('messageReactionAdd', messagereaction => {
@@ -265,6 +270,16 @@ clientDiscord.on('messageReactionAdd', messagereaction => {
             }
         }
     }
+    if(messagereaction.message.id===shipp[i]) {
+        if(messagereaction.emoji.name==='❤') {
+            if(messagereaction.count>=heart){
+                messagereaction.message.channel.send("Wow ! Le ship <@"+shipp1[i]+"> x " + "<@"+ shipp2[i]+ '> semble avoir du succès :smirk::heart:');
+                shipp.splice(i,1);
+                shipp1.splice(i,1);
+                shipp2.splice(i,1);
+            }
+        }
+    } 
 }
 });
 
@@ -289,7 +304,6 @@ clientDiscord.on("message", message => {
         message.channel.send("Un tacos chef?");
 }
 });
-
     //Test
     clientDiscord.on("message", message => {
         if(message==PREFIX+"ban") {
@@ -328,14 +342,12 @@ clientDiscord.on("message", message => {
             console.log(lastA);
     }
     });
-
         //Test
         clientDiscord.on("message", message => {
             if(message.content.startsWith(PREFIX+"send")) {
                 console.log(message.content);
         }
         });
-
             //Test
             clientDiscord.on("message", message => {
                 if(message.content.startsWith(PREFIX+"reset")) {
@@ -388,4 +400,4 @@ penis="test"
             });
 
 // Connexion
-clientDiscord.login(process.env.TOKEN);
+clientDiscord.login(clientDiscord.login(process.env.TOKEN););

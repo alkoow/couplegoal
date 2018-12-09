@@ -266,6 +266,9 @@ clientDiscord.on('messageReactionAdd', messagereaction => {
         }
     }
 }
+});
+
+clientDiscord.on('messageReactionAdd', messagereaction => {
     for (var i=0; i<shipp.length; i++) {
         if(messagereaction.message.id===shipp[i]) {
         if(messagereaction.emoji.name==='❤') {
@@ -274,6 +277,10 @@ clientDiscord.on('messageReactionAdd', messagereaction => {
                 shipp.splice(i,1);
                 shipp1.splice(i,1);
                 shipp2.splice(i,1);
+            }
+        }
+    }
+}
 });
 
  /*  //Test

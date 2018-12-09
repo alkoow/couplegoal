@@ -15,8 +15,11 @@ var delai=86400000;
 var ban=[];
 var ban2=[];
 var ship=[];
+var shipp=[];
 var ship1=[];
 var ship2=[];
+var shipp1=[];
+var shipp2=[];
 
 
     // Help
@@ -240,10 +243,13 @@ clientDiscord.on("message", message => {
                     }
                 }
     }
+            shipp1.push(message.author.id);
+            shipp2.push(utilisateurB);
             message.channel.send("<@"+ utilisateurA + ">, je trouve <@" + utilisateurB + "> vraiment parfaite pour toi :point_right: :point_left: ")
             .then(msg => {
                 msg.react('❤');
                 msg.react('💔');
+                shipp.push(msg.id);
             }).catch();
         }
     });
@@ -260,6 +266,14 @@ clientDiscord.on('messageReactionAdd', messagereaction => {
         }
     }
 }
+    for (var i=0; i<shipp.length; i++) {
+        if(messagereaction.message.id===shipp[i]) {
+        if(messagereaction.emoji.name==='❤') {
+            if(messagereaction.count>=heart){
+                messagereaction.message.channel.send("Wow ! Le ship <@"+shipp1[i]+"> x " + "<@"+ shipp2[i]+ '> semble avoir du succès :smirk::heart:');
+                shipp.splice(i,1);
+                shipp1.splice(i,1);
+                shipp2.splice(i,1);
 });
 
  /*  //Test

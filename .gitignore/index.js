@@ -43,7 +43,7 @@ var shipp2=[];
                   },
                   {
                     "name": "ADMINISTRATION",
-                    "value": "**<3ship <nombre>:** réglage du nombre de cœurs nécessaire pour un ship\n**<3delay <minutes>*:* réglage du délai entre chaque commande"
+                    "value": "**<3ship <nombre>:** réglage du nombre de cœurs nécessaire pour un ship\n**<3delay <minutes>:** réglage du délai entre chaque commande"
                   },
                 ]
               }

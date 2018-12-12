@@ -400,4 +400,4 @@ penis="test"
             });
 
 // Connexion
-clientDiscord.login(clientDiscord.login(process.env.TOKEN););
+clientDiscord.login(clientDiscord.login(process.env.TOKEN));
